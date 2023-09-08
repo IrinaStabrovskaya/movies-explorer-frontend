@@ -1,4 +1,4 @@
-import "./SavedMovies.css";
+
 import MoviesCard from "../MoviesCard/MoviesCard";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Header from "../Header/Header";

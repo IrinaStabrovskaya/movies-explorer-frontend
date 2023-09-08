@@ -1,9 +1,9 @@
-import "./Movies.css";
+
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import { cards } from "../../utils/cards";
+import { cards } from "../../utils/cards.js";
 import Footer from "../Footer/Footer";
 
 const Movies = (props) => {
