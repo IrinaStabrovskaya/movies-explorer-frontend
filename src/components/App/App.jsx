@@ -5,9 +5,6 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Register from "../Auth/Register/Register";
 import Login from "../Auth/Login/Login";
-
-import { useState } from "react";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
 import {
   Routes,
   Route,
@@ -17,8 +14,6 @@ import {
 } from "react-router-dom";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState();
-
   return (
     <>
       <Routes>

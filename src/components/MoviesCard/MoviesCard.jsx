@@ -17,7 +17,7 @@ const MoviesCard = (props) => {
           <button
             className={
               (location.pathname === "/movies" && "movie-card__like-btn btn") ||
-              (location.pathname === "/saved-movies" && "movie-card__del-btn btn")
+              (location.pathname === "/saved-movies" && "movie-card__del-btn")
             }
           ></button>
         </div>
