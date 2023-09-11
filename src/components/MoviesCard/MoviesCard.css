@@ -1,0 +1,107 @@
+.movie-card__container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: 100%;
+  border-radius: 6px;
+  background: #222;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.movie-card__pic {
+  max-height: 168px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.movie-card__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 7px 10px 6px 14px;
+}
+
+.movie-card__name {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.movie-card__like-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: url(../../images/icons/inactive-icon.svg) no-repeat center/cover;
+}
+
+.movie-card__like-btn_active {
+  background: url(../../images/icons/active-icon.svg) no-repeat center/cover;
+}
+
+.movie-card__del-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: url(../../images/icons/del-icon.svg) no-repeat center/cover;
+}
+
+.movie-card__time {
+  color: #8b8b8b;
+  font-size: 10px;
+  font-weight: 400;
+  margin: 0 auto 14px 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .movie-card__container {
+    min-width: 339px;
+  }
+
+  .movie-card__pic {
+    max-height: 190px;
+  }
+
+  .movie-card__description {
+    margin: 8px 14px 7px;
+  }
+
+  .movie-card__name {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .movie-card__time {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .movie-card__container {
+    min-width: 364px;
+  }
+
+  .movie-card__pic {
+    max-height: 203px;
+  }
+
+  .movie-card__description {
+    margin: 9px 16px 10px;
+  }
+
+  .movie-card__del-btn {
+    visibility: hidden;
+  }
+
+  .movie-card__container:hover .movie-card__del-btn {
+    visibility: visible;
+    cursor: pointer;
+  }
+
+  .movie-card__time {
+    margin: 0 auto 16px 16px;
+  }
+}
