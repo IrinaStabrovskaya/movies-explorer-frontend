@@ -14,12 +14,14 @@ const Main = () => {
     <>
       <Header />
       <main className="main__container">
+        
         <Promo />
         <NavTab />
         <AboutProject />
         <Techs />
         <AboutMe />
         <Portfolio />
+        
       </main>
       <Footer />
     </>

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin-left: 44px;
-  width: 1058px;
+  min-width: 1058px;
 }
 
 .top-menu__links {
@@ -41,14 +41,18 @@
   font-weight: 500;
   line-height: 12px;
   text-decoration: none;
- 
 }
 
 .top-menu__account-icon {
-    width: 26px;
+  width: 26px;
   height: 26px;
   border-radius: 50px;
-  background: url(../../../images/icons/account-icon.svg) no-repeat #313131  10.383px 10.669px;
+  background: url(../../../images/icons/account-icon.svg) no-repeat #313131
+    10.383px 10.669px;
   background-position: center;
 }
-
+ @media screen and (1063px <= width <= 1279px) {
+  .top-menu__menu {
+    min-width: 708px;
+  }
+ }

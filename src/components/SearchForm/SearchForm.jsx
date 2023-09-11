@@ -7,8 +7,9 @@ const SearchForm = () => {
       <form className="search-form__form">
         <div className="search-form__input-wrapper">
           <input
-            type="text"
             className="search-form__input"
+            type="text"
+            name="search"            
             placeholder="Фильм"
             required
           />
@@ -16,7 +17,11 @@ const SearchForm = () => {
         </div>
 
         <label className="search-form__filter-container">
-          <input type="checkbox" className="search-form__filter" />
+          <input              
+            className="search-form__filter"
+            type="checkbox"
+            name="filter"
+            />
           <span className="search-form__filter-img"></span>
           Короткометражки
         </label>

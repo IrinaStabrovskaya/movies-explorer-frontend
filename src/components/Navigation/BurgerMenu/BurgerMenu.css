@@ -38,6 +38,8 @@
 .burger-menu__btn-close {
   width: 22px;
   height: 22px;
+  
+flex-shrink: 0;
   background: url(../../../images/icons/burger-close-icon.svg) no-repeat center /
     cover;
   border: none;

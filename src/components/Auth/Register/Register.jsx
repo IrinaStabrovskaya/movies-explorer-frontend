@@ -15,20 +15,25 @@ const Register = () => {
         <Input
           label="Имя"
           type="text"
-          name="name"
-          id="name"
+          name="name"          
           placeholder="Виталий"
+          minLength="2"
+          maxLength="30"
         />
 
         <Input
           label="E-mail"
           type="text"
-          name="email"
-          id="email"
+          name="email"          
           placeholder="pochta@yandex.ru"
         />
 
-        <Input label="Пароль" type="password" name="password" id="password" />
+        <Input 
+          label="Пароль" 
+          type="password" 
+          name="password"           
+          placeholder="••••••••"
+          minLength="8" />
       </Auth>
     </>
   );

@@ -11,11 +11,13 @@ const Input = (props) => {
             : "input__input"
         }
         type={props.type}
-        name={props.name}
-        id={props.id}
-        placeholder={props.placeholder}
+        name={props.name}       
+        placeholder={props.placeholder || null}
+        minLength={props.minLength || null}
+        maxLength={props.maxLength || null}
+        required    
       />
-      <span className="input__input-span">Что-то пошло не так...</span>
+      <span className="input__input-message">Что-то пошло не так...</span>
     </>
   );
 };

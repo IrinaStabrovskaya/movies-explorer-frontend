@@ -30,13 +30,13 @@
   color: #ee3465;
 }
 
-.input__input-span {
+.input__input-message {
   visibility: hidden;
   margin-top: 10px;
   color: #ee3465;
   font-size: 10px;
   font-weight: 400;
 }
-.input__input-span_visible {
+.input__input-message_visible {
   visibility: visible;
 }
