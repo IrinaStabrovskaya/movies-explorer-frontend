@@ -6,6 +6,7 @@
   border-radius: 6px;
   background: #222;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .movie-card__pic {
@@ -45,13 +46,7 @@
   height: 30px;
   padding: 0;
   border: none;
-  background: none;
-}
-
-.movie-card__del-btn:hover {
   background: url(../../images/icons/del-icon.svg) no-repeat center/cover;
-
-  cursor: pointer;
 }
 
 .movie-card__time {
@@ -95,6 +90,15 @@
 
   .movie-card__description {
     margin: 9px 16px 10px;
+  }
+
+  .movie-card__del-btn {
+    visibility: hidden;
+  }
+
+  .movie-card__container:hover .movie-card__del-btn {
+    visibility: visible;
+    cursor: pointer;
   }
 
   .movie-card__time {

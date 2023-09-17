@@ -1,12 +1,14 @@
 import "./TopMenu.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 
-const TopMenu = () => {
+const TopMenu = ({ isLoggedIn }) => {
+const navigate =useNavigate();
+
   return (
     <nav className="top-menu__menu">
       <ul className="top-menu__links">
         <li>
-          <NavLink to={"/movies"}
+          <NavLink to="/movies"
             className={({ isActive }) =>
               isActive
                 ? "top-menu__link link top-menu__link_active"
@@ -14,7 +16,7 @@ const TopMenu = () => {
             }>Фильмы</NavLink>
         </li>
         <li>
-          <NavLink to={"/saved-movies"}
+          <NavLink to="/saved-movies"
             className={({ isActive }) =>
               isActive
                 ? "top-menu__link link top-menu__link_active"
@@ -22,7 +24,9 @@ const TopMenu = () => {
             }>Сохранённые фильмы</NavLink>
         </li>
       </ul>
-      <NavLink to="/profile" className="top-menu__account link" >Аккаунт
+      <NavLink 
+      onClick={(isLoggedIn && (() => navigate("/profile")))}
+      to="/profile" className="top-menu__account link" >Аккаунт
         <span className="top-menu__account-icon"></span>
       </NavLink>
     </nav>

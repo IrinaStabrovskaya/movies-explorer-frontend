@@ -1,7 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./BurgerMenu.css";
 
-const BurgerMenu = ({ isOpen, onClose }) => {
+const BurgerMenu = ({ isOpen, onClose, isLoggedIn }) => {
+const navigate = useNavigate();
+
   return (
     <>
       <div className={`burger-menu ${isOpen ? "burger-menu_opened" : ""}`}>
@@ -47,6 +49,7 @@ const BurgerMenu = ({ isOpen, onClose }) => {
             </li>
           </ul>
           <NavLink
+            onClick={(isLoggedIn && (() => navigate("/profile")))}
             to={"/profile"}
             className={({ isActive }) =>
               isActive

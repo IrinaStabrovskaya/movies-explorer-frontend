@@ -1,0 +1,82 @@
+.infoTooltip {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 2s ease-in 0s, opacity 500ms;
+}
+
+.infoTooltip_opened {
+    visibility: visible;
+    opacity: 1;
+}
+
+.infoTooltip__container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 282px;
+    height: 322px;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    color: #000;
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .infoTooltip__container {
+      width: 430px;
+      height: 330px;
+    }
+  }
+
+  .infoTooltip__close-btn {
+    position: absolute;
+    top: -36px;
+    min-width: 20px;
+    min-height: 20px;
+    padding: 0;
+    background: url(../../images/icons/burger-close-icon.svg) no-repeat center / cover;
+    border: none;
+    align-self: flex-end;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .infoTooltip__close-btn {
+      align-self: center;
+      margin-right: 0;
+      margin-left: 262px;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    .infoTooltip__close-btn {
+      margin: 0;
+      top: -40px;
+      right: -40px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .infoTooltip__image {
+    margin: 60px auto 0;
+    width: 120px;
+    height: 120px;
+}
+.infoTooltip__text {
+    margin: 32px 36px 60px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #000;
+}

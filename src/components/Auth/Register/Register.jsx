@@ -1,34 +1,63 @@
+
 import Auth from "../Auth";
 import Input from "../Input/Input";
 
-const Register = () => {
+import useValidForm from "../../../hooks/use-valid-form";
+
+const Register = (props) => {
+  const { values, errors, resetForm, handleChange } = useValidForm();
+  
+  const handleSubmit = (evt) => {
+    evt.preventDefault();      
+     props.onRegister( values.name, values.email,  values.password )
+     console.log(  values.email,  values.password, values.name )
+     resetForm();
+  };
+  
   return (
     <>
       <Auth
         title="Добро пожаловать!"
-        button="Зарегистрироваться"
-        pathBtn="/signin"
+        button="Зарегистрироваться"     
         text="Уже зарегистрированы?"
         pathLink="/signin"
         link="Войти"
+        onSubmit={handleSubmit}
+        name="register"
+        autocomplete="off"
       >
         <Input
           label="Имя"
           type="text"
-          name="name"
-          id="name"
+          name={"name"} 
+          value={values.name} 
+          errors={errors.name}        
           placeholder="Виталий"
+          minLength={2}
+          maxLength={30}
+          onChange={handleChange}
         />
 
         <Input
           label="E-mail"
-          type="text"
-          name="email"
-          id="email"
+          type="email"
+          name={"email"} 
+          value={values.email}  
+          errors={errors.email}       
           placeholder="pochta@yandex.ru"
+          onChange={handleChange}
         />
 
-        <Input label="Пароль" type="password" name="password" id="password" />
+        <Input 
+          label="Пароль" 
+          type="password" 
+          name={"password"} 
+          value={values.password}  
+          errors={errors.password}      
+          placeholder="••••••••"
+          minLength={8}
+          onChange={handleChange}
+           />
       </Auth>
     </>
   );

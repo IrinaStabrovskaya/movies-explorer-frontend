@@ -9,17 +9,17 @@ import AboutMe from "./AboutMe/AboutMe";
 import Portfolio from "./Portfolio/Portfolio";
 import Footer from "../Footer/Footer";
 
-const Main = () => {
+const Main = ({ isLoggedIn }) => {
   return (
     <>
-      <Header />
-      <main className="main__container">
+      <Header isLoggedIn={isLoggedIn}/>
+      <main className="main__container">        
         <Promo />
         <NavTab />
         <AboutProject />
         <Techs />
         <AboutMe />
-        <Portfolio />
+        <Portfolio />        
       </main>
       <Footer />
     </>

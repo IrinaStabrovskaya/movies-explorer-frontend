@@ -1,24 +1,36 @@
-import "./SavedMovies.css";
-import MoviesCard from "../MoviesCard/MoviesCard";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Header from "../Header/Header";
 import SearchForm from "../SearchForm/SearchForm";
 import Footer from "../Footer/Footer";
+import { useSearch } from "../../hooks/use-search";
 
-import { savedCards } from "../../utils/cards";
+//import { savedCards } from "../../utils/config";
 
-const SavedMovies = () => {
+const SavedMovies = ({
+  isLoggedIn,
+  movies, 
+  onError,
+  onDeleteMovie,
+}) => {
+  const { isFilterMovies, handleSearch, isLoading, text } = useSearch({
+    movies: movies,
+    isSavedMoviesPage: true,
+  });
   return (
     <>
-      <Header />
-      <SearchForm />
-      <MoviesCardList>
-        {savedCards.map((card) => (
-          <li>
-            <MoviesCard photo={card.photo} name={card.name} time={card.time} />
-          </li>
-        ))}
-      </MoviesCardList>
+      <Header isLoggedIn={isLoggedIn}/>
+      <SearchForm
+        movies={isFilterMovies}
+        onError={onError}
+        onSubmitRequest={handleSearch}
+      />
+      <MoviesCardList
+        movies={isFilterMovies}
+        savedMovies={isFilterMovies}
+        infoText={text}
+        onDeleteMovie={onDeleteMovie}
+        isLoading={isLoading}
+      />
       <Footer />
     </>
   );

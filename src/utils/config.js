@@ -104,3 +104,18 @@ export const savedCards = [
     time: "1ч 42м",
   },
 ];
+
+export const countMoviesLoading = {
+  mobile: {
+    moviesCount: 5,
+    adddMoreMovies: 2,
+  },
+  tablet: {
+    moviesCount: 8,
+    adddMoreMovies: 2,
+  },
+  desktop: {
+    moviesCount: 12,
+    adddMoreMovies: 3,
+  },
+}

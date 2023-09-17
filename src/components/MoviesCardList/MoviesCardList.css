@@ -4,6 +4,14 @@
   margin: 10px auto 0;
 }
 
+.movies-card-list__info-text {
+  display: block;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
 .movies-card-list_saved {
   margin-bottom: 140px;
 }
@@ -29,6 +37,10 @@
   text-align: center;
   font-size: 12px;
   font-weight: 500;
+}
+
+.movies-card-list__btn_none {
+  visibility: hidden;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,21 +1,28 @@
 import "./Input.css";
+//import useValidForm from "../../../hooks/use-valid-form";
 
-const Input = (props) => {
+const Input = ({ label, name, value,  errors, minLength, maxLength, placeholder, type, onChange }) => {
+  //const { handleChange } = useValidForm();
   return (
     <>
-      <label className="input__input-label">{props.label}</label>
+      <label className="input__input-label" htmlFor={name}>{label}</label>
       <input
         className={
-          props.name === "password"
+          name === "password"
             ? "input__input input__input_color"
             : "input__input"
         }
-        type={props.type}
-        name={props.name}
-        id={props.id}
-        placeholder={props.placeholder}
+        type={type}
+        name={name}  
+        value={value}   
+        placeholder={placeholder || null}
+        minLength={minLength || null}
+        maxLength={maxLength || null}
+        required 
+        onChange={onChange}   
       />
-      <span className="input__input-span">Что-то пошло не так...</span>
+      <span className="input__input-message">{errors}</span>
+      
     </>
   );
 };
