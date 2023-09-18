@@ -55,11 +55,17 @@ const MoviesCardList = ({
     }, false);
   };
 
-  const photoLink = (movie) => {    
-    
-    //const url = movie.image.slice(28, );
-   // console.log(url);
-    return  API_FILMS_URL + movie.image.url 
+  const keyMovie = (movie) => {
+    return movie.movieId
+      ? movie.movieId
+      : movie.id
+  }
+
+
+  const photoLink = (movie) => {
+    return movie.movieId
+      ?  movie = movie.image.slice(28,)  
+      : API_FILMS_URL + movie.image.url 
   }
 
   const renderMoviesCard = (moviesCount) => {
@@ -67,7 +73,7 @@ const MoviesCardList = ({
       return movies.slice(0, moviesCount).map((movieData) => {
         return (
           <MoviesCard
-            key={movieData.id ?? movieData._id}
+            key={keyMovie(movieData)}
             movieData={movieData}
             name={movieData.nameRU}
             time={movieData.duration}
@@ -75,6 +81,7 @@ const MoviesCardList = ({
             isSaved={isSavedMovie(movieData)}
             onSaveMovie={onSaveMovie}
             onDeleteMovie={onDeleteMovie}
+            onClick={movieData.trailer}
           />
         );
       });
