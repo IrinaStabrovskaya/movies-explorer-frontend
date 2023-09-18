@@ -1,6 +1,6 @@
 Ссылка на макет для Figma [https://disk.yandex.ru/d/M9zj-_4NOW8NAw]
 
-IP 84.201.174.253
+IP 51.250.86.52
 
 Frontend [https://my-movies.nomoredomainsrocks.ru]
 
