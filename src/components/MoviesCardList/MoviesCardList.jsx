@@ -63,8 +63,10 @@ const MoviesCardList = ({
 
 
   const photoLink = (movie) => {
+    console.log("hjk", movie.image)
     return movie.movieId
-      ?  movie = movie.image.slice(28,)  
+
+      ?  movie = movie.image //.slice(28,)  
       : API_FILMS_URL + movie.image.url 
   }
 

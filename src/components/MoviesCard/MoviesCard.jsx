@@ -1,6 +1,6 @@
 import "./MoviesCard.css";
 import { useLocation } from "react-router-dom";
-import {API_FILMS_URL} from "../../utils/constants/data";
+
 
 const MoviesCard = ({ key,
   movieData,
