@@ -1,0 +1,49 @@
+.header {  
+  margin: 0 auto;
+  width: 100%;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  background-color: #202020;
+  min-width: 320px;
+}
+
+.header_color {
+  background-color: #073042;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 284px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+ .header {
+  min-width: 768px;
+ }
+
+  .header__container {
+    max-width: 708px;
+  }
+}
+
+
+
+@media screen and (min-width: 1280px) {
+  .header {
+    min-width: 1280px;
+  }
+
+  .header__container {
+    max-width: 1140px;
+  }
+}

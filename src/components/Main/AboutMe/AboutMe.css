@@ -1,0 +1,141 @@
+.student {
+  margin: 70px auto;
+  max-width: 292px;
+  display: flex;
+  flex-direction: column;
+}
+
+.student__container {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 0 0;
+  gap: 40px;
+}
+
+.student__image {
+  max-width: 292px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: 352px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.student__about {
+  display: flex;
+  flex-direction: column;
+}
+
+.student__name {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+
+.student__job {
+  margin: 0;
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.student__biography {
+  margin: 0;
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.student__link {
+  margin-top: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .student {
+    margin: 90px auto;
+    min-width: 668px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .student__container {
+    flex-direction: row-reverse;
+    margin: 66px 0 0;
+    gap: 49px;
+  }
+
+  .student__image {
+    max-width: 255px;
+    max-height: 307px;
+  }
+
+  .student__name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+  }
+
+  .student__job {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .student__biography {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .student__link {
+    margin-top: 87px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .student {
+    margin: 110px auto 101px;
+    min-width: 1140px;
+  }
+
+  .student__container {
+    flex-direction: row-reverse;
+    margin: 66px 0 0;
+    gap: 270px;
+  }
+
+  .student__image {
+    max-width: 270px;
+    max-height: 327px;
+  }
+
+  .student__name {
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -2px;
+  }
+
+  .student__job {
+    margin-top: 18px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .student__biography {
+    margin-top: 26px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .student__link {
+    margin-top: 99px;
+  }
+}

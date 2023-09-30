@@ -1,0 +1,134 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 260px;
+  width: 100%;
+  margin: 56px auto 30px;
+}
+
+.auth__title {
+  margin: 50px auto 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.auth__form {
+  width: 100%;
+  margin: 80px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form__input-wrapper {
+  width: 100%;
+  min-height: 266px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.auth-form__span-result { 
+  margin: 0;  
+  margin-top: 127px;
+  min-height: 20px;
+  color: #FF004C;
+text-align: center;
+
+font-size: 11px;
+}
+
+.auth-form__span-result_inactive {
+  visibility: hidden;
+}
+
+.auth-form__btn {
+  width: 100%;
+  padding: 0;
+  border: none;
+  margin:  0 auto;
+  height: 45px;
+  border-radius: 3px;
+  background: #4285f4;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.auth-form__btn_inactive {
+  background: #e8e7e7;
+}
+
+.auth-link__link-wrapper {
+  margin-top: 14px;
+  display: flex;
+  gap: 7px;
+  align-content: center;
+  justify-content: center;
+}
+
+.auth-link__link-text {
+  margin: 0;
+  color: #8b8b8b;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.auth__link {
+  color: #4285f4;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .auth {
+    margin: 232px auto;
+    max-width: 396px;
+    align-items: flex-start;
+  }
+
+  .auth__title {
+    margin: 40px auto 0 0;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .auth__form {
+    margin: 40px 0 0;
+  }
+
+  .auth-link__link-wrapper {
+    margin-top: 16px;
+    gap: 6px;
+    margin: 16px auto 0;
+  }
+
+  .auth-form__span-result {
+    margin-top: 39px;
+  }
+
+  .auth-form__btn {
+    margin: 0 auto;
+    font-size: 14px;
+  }
+
+  .auth-link__link-text {
+    font-size: 14px;
+  }
+
+  .auth__link {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .auth {
+    margin: 70px auto;
+  }
+}

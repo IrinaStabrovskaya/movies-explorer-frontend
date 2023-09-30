@@ -1,0 +1,135 @@
+.techs {
+  width: 100%;
+  background: #272727;
+}
+
+.techs__container {
+  display: flex;
+  flex-direction: column;
+  margin: 70px auto;
+  max-width: 284px;
+  width: 100%;
+  background: #272727;
+}
+
+.techs__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  
+  letter-spacing: -0.72px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #000;
+}
+
+.techs__subtitle {
+  margin: 0;
+  margin-top: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+
+.techs__text {
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.44px;
+}
+
+.techs__icons-container {
+  max-width: 178px;
+  width: 100%;
+  padding: 0;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(84px), 1fr));
+
+  list-style: none;
+  gap: 10px;
+}
+
+.techs__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  min-height: 57px;
+  border-radius: 10px;
+  background: #303030;
+  font-size: 12px;
+  letter-spacing: -0.48px;
+}
+
+@media screen and (min-width: 768px) {
+  .techs__container {
+    margin: 90px auto;
+    max-width: 668px;
+  }
+
+  .techs__title {
+    font-size: 22px;
+    letter-spacing: -0.88px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #dadada;
+  }
+
+  .techs__subtitle {
+    margin-top: 80px;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -2px;
+  }
+
+  .techs__text {
+    max-width: 460px;
+    width: 100%;
+    margin-top: 22px;  
+  font-size: 12px; 
+  line-height: 18px;
+  letter-spacing: -0.48px;
+  }
+
+  .techs__icons-container {
+    min-width: 648px;    
+  margin: 83px auto 0;    
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .techs__container {
+    margin: 100px auto;
+    max-width: 1140px;
+  }  
+
+  .techs__subtitle {
+    margin-top: 90px;    
+  }
+
+  .techs__text {        
+    margin-top: 26px;  
+  font-size: 14px; 
+  line-height: 20px;
+  letter-spacing: -0.56px;
+  }
+
+  .techs__icons-container {
+    min-width: 690px;    
+  margin: 100px auto 0;    
+  }
+
+  .techs__icon {
+   
+    min-width: 90px;
+    min-height: 57px;
+    border-radius: 10px;
+    background: #303030;
+    font-size: 14px;
+    letter-spacing: -0.56px;
+  }
+}

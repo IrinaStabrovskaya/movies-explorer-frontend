@@ -1,0 +1,126 @@
+.search-form__container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 292px;
+  width: 100%;
+  border-bottom: 0.986px solid #424242;
+}
+
+.search-form__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 80px;
+}
+
+.search-form__input-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 46px;
+  margin: 0 auto;
+  border-radius: 40px;
+  background: #2f2f2f;
+}
+
+.search-form__input {
+  margin: 14px auto 14px 19px;
+  color: #8b8b8b;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 17px;
+  background: #2f2f2f;
+  padding: 0;
+  border: none;
+}
+
+.search-form__input {
+  outline: none;
+}
+
+.search-form__span-query {
+  min-height: 20px;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgb(185, 176, 176);
+  margin-left: 19px;
+}
+
+.search-form__btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50px;
+  background: url(../../images/icons/find-icon.svg) no-repeat center/cover;
+  margin: auto;
+  margin-right: 6px;
+  border: none;
+  padding: 0;
+}
+
+.search-form__filter-container {
+  display: flex;
+  margin: 12px auto 49px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  padding-right: 13px;
+}
+
+.search-form__filter {
+  visibility: hidden;
+}
+
+.search-form__filter-img {
+  border-radius: 40px;
+  width: 36px;
+  height: 20px;
+  margin-right: 13px;
+  cursor: pointer;
+}
+
+.search-form__filter ~ .search-form__filter-img {
+  background: url(../../images/icons/checkbox-grey-icon.svg) no-repeat;
+  background-size: cover;
+}
+
+.search-form__filter:checked ~ .search-form__filter-img {
+  background: url(../../images/icons/checkbox-green-icon.svg) no-repeat;
+  background-size: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .search-form__filter-container {
+    margin: 11px auto 50px;
+    font-size: 14px;
+  }
+
+  .search-form__filter-img {
+    margin-right: 12px;
+  }
+
+  .search-form__container {
+    max-width: 708px;
+  }
+
+  .search-form__input {
+    margin-left: 22px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .search-form__container {
+    max-width: 1140px;
+  }
+
+  .search-form__form {
+    margin-top: 60px;
+  }
+
+  .search-form__filter-container {
+    margin-bottom: 39px;
+  }
+}

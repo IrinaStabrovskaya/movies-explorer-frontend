@@ -1,0 +1,77 @@
+.top-menu__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.top-menu__links {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin: auto 10px;
+  gap: 16px;
+}
+
+.top-menu__link {
+  color: #fff;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 26px;
+  text-decoration: none;
+}
+
+.top-menu__link_active {
+  font-weight: 500;
+}
+
+.top-menu__account {
+  width: 90px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 6px;
+  border-radius: 40px;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 10px;
+  text-decoration: none;
+}
+
+.top-menu__account-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50px;
+  background: url(../../../images/icons/account-icon.svg) no-repeat #313131
+    10.383px 10.669px;
+  background-position: center;
+}
+
+@media screen and (min-width: 768px) {
+  .top-menu__menu {
+    min-width: 626px;
+  }
+
+  .top-menu__links {
+    margin: auto 0;
+  }
+
+  .top-menu__link {
+    font-size: 10px;
+  }
+
+  .top-menu__account {
+    width: 100px;
+    gap: 7px;
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .top-menu__menu {
+    min-width: 1068px;
+  }
+}
