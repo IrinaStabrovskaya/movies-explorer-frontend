@@ -1,12 +1,12 @@
 import { useState, useLayoutEffect } from "react";
 
 const queries = [
-    '(max-width: 767px)',
-    '(min-width: 768px)',// and (max-width: 1279px)',
+    '(min-width: 320px) and (max-width: 767px)',
+    '(min-width: 768px) and (max-width: 1279px)',
     '(min-width: 1280px)',
 ];
 
-export const useMatchMedia = () => {
+ const useMatchMedia = () => {
     const mediaOueryLists = queries.map(query => matchMedia(query));
 
     const getValues = () => mediaOueryLists.map(mql => mql.matches);
@@ -27,3 +27,5 @@ export const useMatchMedia = () => {
         [screen]: values[index],
     }), {});
 };
+
+export default useMatchMedia;

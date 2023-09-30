@@ -1,36 +1,49 @@
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import Preloader from '../Preloader/Preloader';
 import Header from "../Header/Header";
-import SearchForm from "../SearchForm/SearchForm";
 import Footer from "../Footer/Footer";
-import { useSearch } from "../../hooks/use-search";
+import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from '../MoviesCardList/MoviesCardList';
+import { useEffect, useState } from 'react';
+import useSearch from '../../hooks/use-search';
 
-//import { savedCards } from "../../utils/config";
-
-const SavedMovies = ({
-  isLoggedIn,
-  movies, 
-  onError,
-  onDeleteMovie,
-}) => {
-  const { isFilterMovies, handleSearch, isLoading, text } = useSearch({
-    movies: movies,
+const SavedMovies = ({ savedMovies, onDeleteMovie }) => {
+  const [valueSearch, setValueSearch] = useState({ searchMovie: '', shortMovie: false });
+  const [isMessageShow, setMessageShow] = useState(false);
+  const { filteredMovies, searchStatus, handleSubmitSearch } = useSearch({
+    movies: savedMovies,
     isSavedMoviesPage: true,
   });
+
+  useEffect(() => {
+    if (!!filteredMovies) {
+      if (filteredMovies.length === 0) {
+        setMessageShow(true);
+      } else {
+        setMessageShow(false);
+      }
+    }
+  }, [filteredMovies]);
+
   return (
     <>
-      <Header isLoggedIn={isLoggedIn}/>
+    <Header />
       <SearchForm
-        movies={isFilterMovies}
-        onError={onError}
-        onSubmitRequest={handleSearch}
+        isSavedMoviesPage={true}
+        valueSearch={valueSearch}
+        setValueSearch={setValueSearch}
+        onSubmitSearch={handleSubmitSearch}
+        searchStatus={searchStatus}
+        isMessageShow={isMessageShow}        
       />
-      <MoviesCardList
-        movies={isFilterMovies}
-        savedMovies={isFilterMovies}
-        infoText={text}
-        onDeleteMovie={onDeleteMovie}
-        isLoading={isLoading}
-      />
+      {searchStatus.isLoading ? (
+        <Preloader />
+      ) : (
+        <MoviesCardList
+          isSavedMoviesPage={true}
+          moviesList={filteredMovies}
+          onDeleteMovie={onDeleteMovie}
+        />
+      )}
       <Footer />
     </>
   );

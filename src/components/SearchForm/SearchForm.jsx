@@ -1,78 +1,106 @@
 import "./SearchForm.css";
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import useMatchMedia from "../../hooks/use-match-media";
+import { countMoviesLoading } from "../../utils/config";
 
-const SearchForm = ({ isLoading, onSubmitRequest, onError }) => {
-  const location = useLocation();
-  //состояние до первого запроса
-  const [searchRequest, setSearchRequest] = useState({
-    searchMovie: "",
-    shortMovie: false,
-  });
+const SearchForm = ({
+  onSubmitSearch,
+  isSavedMoviesPage,
+  valueSearch,
+  setValueSearch,
+  searchStatus,
+  setSearchStatus,
+  setMaxShowMovies, 
+}) => {
+  const { isMobile, isTablet, isDesktop } = useMatchMedia();
   
-  // ф-ция сабмита 
+  const handleChange = (evt) => {
+    setValueSearch((valueSearch) => {
+      return { ...valueSearch, searchMovie: evt.target.value };
+    });
+  };
+
+  const handleChangeCheckbox = (evt) => {
+    setValueSearch((valueSearch) => {
+      return { ...valueSearch, shortMovie: evt.target.checked };
+    });
+
+    if (!isSavedMoviesPage && searchStatus.isFirstSearch) {
+      return;
+    }
+    onSubmitSearch({ ...valueSearch, shortMovie: evt.target.checked });
+    console.log({ ...valueSearch, shortMovie: evt.target.checked });
+    isDesktop &&
+      !isSavedMoviesPage &&
+      setMaxShowMovies(countMoviesLoading.desktop.moviesCount);
+    isTablet &&
+      !isSavedMoviesPage &&
+      setMaxShowMovies(countMoviesLoading.tablet.moviesCount);
+    isMobile &&
+      !isSavedMoviesPage &&
+      setMaxShowMovies(countMoviesLoading.mobile.moviesCount);
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (!searchRequest.searchMovie.trim()) {
-      onError();
-      return setSearchRequest({ ...searchRequest, searchMovie: "" });
-    }
-    onSubmitRequest(searchRequest);
+    onSubmitSearch(valueSearch);
+    isDesktop &&
+      !isSavedMoviesPage &&
+      setMaxShowMovies(countMoviesLoading.desktop.moviesCount);
+    isTablet &&
+      !isSavedMoviesPage &&
+      setMaxShowMovies(countMoviesLoading.tablet.moviesCount);
+    isMobile &&
+      !isSavedMoviesPage &&
+      setMaxShowMovies(countMoviesLoading.mobile.moviesCount);
   };
-  // ф-ция изменения состояния запроса при вводе данных в инпут
-  const handleChange = (e) => {
-    setSearchRequest({ ...searchRequest, searchMovie: e.target.value });
-  };
-
-  // ф-ция изменения состояния запроса при переключении чекбокса короткометражек
-  const handleChangeCheckbox = (e) => {
-    if (!searchRequest.searchMovie.trim()) {
-      onError();
-      return setSearchRequest({ ...searchRequest, searchMovie: "" });
-    }
-    setSearchRequest({ ...searchRequest, shortMovie: e.target.checked });
-    onSubmitRequest({ ...searchRequest, shortMovie: e.target.checked });
-  };
-  
-  //если уже есть предыдущий запрос в локалсторадж, то меняется состояние в соответствии с этими данными
-  useEffect(() => {
-    if (location.pathname === "/movies" && localStorage.getItem("search")) {
-      const { searchMovie, shortMovie } = JSON.parse(
-        localStorage.getItem("search")
-      );
-      setSearchRequest({
-        searchMovie,
-        shortMovie,
-      });
-    }
-  }, [location]);
 
   return (
     <section className="search-form__container">
-      <form className="search-form__form" onSubmit={handleSubmit}>
+      <form
+        className="search-form__form"
+        name="searchMovie"
+        onSubmit={handleSubmit}
+        searchStatus={searchStatus}             
+        noValidate
+      >
         <label className="search-form__input-wrapper">
           <input
             className="search-form__input"
+            key="searchMovie"
             type="text"
             name="searchMovie"
             placeholder="Фильм"
-            value={searchRequest.searchMovie}
             required
-            disabled={isLoading}
+            autoFocus
+            autoComplete="on"
+            value={valueSearch.searchMovie}
+            isChecked={valueSearch.shortMovie}
             onChange={handleChange}
+            isSavedMoviesPage={isSavedMoviesPage}
+            
           />
-          <button className="search-form__btn btn" ></button>
+          <button className="search-form__btn btn" type="submit" disabled={valueSearch.searchMovie === ""}></button>
         </label>
-
+        {(isSavedMoviesPage && (
+          <span className="search-form__span-query">
+            {searchStatus.statusMessage}
+          </span>
+        )) || (
+          <span className="search-form__span-query">
+            {searchStatus.statusMessage}
+          </span>
+        )}
         <label className="search-form__filter-container">
           <input
             className="search-form__filter"
-            type="checkbox"
+            key="shortMovie"
             name="shortMovie"
-            disabled={isLoading}
-            checked={searchRequest.shortMovie}
+            type="checkbox"
+            value={valueSearch.shortMovie}
+            isChecked={valueSearch.shortMovie}
             onChange={handleChangeCheckbox}
-            
+            isSavedMoviesPage={isSavedMoviesPage}
+            disabled={searchStatus.isLoading}
           />
           <span className="search-form__filter-img"></span>
           Короткометражки

@@ -13,7 +13,6 @@ const InfoTooltip = ({ isOpen, onClose, errorRegister }) => {
       }
     };
 
-
     document.addEventListener("keydown", closeByEsc);
 
     return () => document.removeEventListener("keydown", closeByEsc);

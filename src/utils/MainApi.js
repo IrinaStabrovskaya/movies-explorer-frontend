@@ -1,5 +1,5 @@
-//export const BASE_URL = "http://localhost:3000";
-export const BASE_URL = "https://api.my-movies.nomoreparties.co";
+export const BASE_URL = "http://localhost:3000";
+//export const BASE_URL = "https://api.my-movies.nomoreparties.co";
 
 
 // ф-ция регистрации
@@ -18,11 +18,11 @@ export const register = ({ name, email, password }) => {
   }).then((res) => {
     if (res.ok) {
       return res.json();
-    } else {
-      return Promise.reject(`Ошибка: ${res.status}`);
     }
-  });
-};
+    return res.text().then((text) => {
+      throw JSON.parse(text).message || JSON.parse(text).error;
+    });
+  });}
 
 // ф-ция авторизации
 export const authorization = ({ email, password }) => {
@@ -39,11 +39,11 @@ export const authorization = ({ email, password }) => {
   }).then((res) => {
     if (res.ok) {
       return res.json();
-    } else {
-     return Promise.reject(`Ошибка: ${res.status}`);
     }
-  });
-};
+    return res.text().then((text) => {
+      throw JSON.parse(text).message || JSON.parse(text).error;
+    });
+  });}
 
 // запрос данных пользователя
 export const getInfo = () => {
@@ -54,11 +54,12 @@ export const getInfo = () => {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     }).then((res) => {
-        if (res.ok) {
-            return res.json();
-          } else {
-            return  Promise.reject(`Ошибка: ${res.status}`);
-          }
+      if (res.ok) {
+        return res.json();
+      }
+      return res.text().then((text) => {
+        throw JSON.parse(text).message || JSON.parse(text).error;
+      });
     });
 };
 
@@ -76,11 +77,12 @@ export const setInfo = (data) => {
           email: data.email,
         }),
     }).then((res) => {
-        if (res.ok) {
-            return res.json();
-          } else {
-            return  Promise.reject(`Ошибка: ${res.status}`);
-          }
+      if (res.ok) {
+        return res.json();
+      }
+      return res.text().then((text) => {
+        throw JSON.parse(text).message || JSON.parse(text).error;
+      });
     });
 }
 
@@ -93,11 +95,12 @@ export const getSavedMovies = () => {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     }).then((res) => {
-        if (res.ok) {
-            return res.json();
-          } else {
-            return  Promise.reject(`Ошибка: ${res.status}`);
-          }
+      if (res.ok) {
+        return res.json();
+      }
+      return res.text().then((text) => {
+        throw JSON.parse(text).message || JSON.parse(text).error;
+      });
     });
 };
 
@@ -113,11 +116,12 @@ export const saveMovie = ({ ...data }) => {
             ...data
         }),   
     }).then((res) => {
-        if (res.ok) {
-            return res.json();
-          } else {
-            return  Promise.reject(`Ошибка: ${res.status}`);
-          }
+      if (res.ok) {
+        return res.json();
+      }
+      return res.text().then((text) => {
+        throw JSON.parse(text).message || JSON.parse(text).error;
+      });
     });
 };
 
@@ -130,10 +134,11 @@ export const deleteMovie = (movieId) => {
             "content-type": "application/json",
         },
     }).then((res) => {
-        if (res.ok) {
-            return res.json();
-          } else {
-            return  Promise.reject(`Ошибка: ${res.status}`);
-          }
+      if (res.ok) {
+        return res.json();
+      }
+      return res.text().then((text) => {
+        throw JSON.parse(text).message || JSON.parse(text).error;
+      });
     });
 };

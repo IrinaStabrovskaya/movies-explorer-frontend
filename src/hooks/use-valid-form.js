@@ -1,10 +1,6 @@
 import { useState, useCallback } from "react";
 
-const useValidForm = (
-  oldValues = {},
-  oldErrors = {},
-  oldValid = false
-) => {
+const useValidForm = (oldValues = {}, oldErrors = {}, oldValid = false) => {
   const [values, setValues] = useState(oldValues);
   const [errors, setErrors] = useState(oldErrors);
   const [isValid, setIsValid] = useState(oldValid);
@@ -32,7 +28,7 @@ const useValidForm = (
     setValues,
     setIsValid,
     handleChange,
-    resetForm    
+    resetForm,
   };
 };
 

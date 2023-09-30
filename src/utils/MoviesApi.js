@@ -9,10 +9,11 @@ export const getMovies = () => {
             "Content-Type": "application/json",            
     },
     }).then((res) => {
-        if (res.ok) {
-            return res.json();
-          } else {
-            return  Promise.reject(`Ошибка: ${res.status}`);
-          }
+      if (res.ok) {
+        return res.json();
+      }
+      return res.text().then((text) => {
+        throw JSON.parse(text).message || JSON.parse(text).error;
+      });
     })
 }

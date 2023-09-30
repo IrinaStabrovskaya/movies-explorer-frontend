@@ -1,8 +1,7 @@
 import "./Input.css";
-//import useValidForm from "../../../hooks/use-valid-form";
 
 const Input = ({ label, name, value,  errors, minLength, maxLength, placeholder, type, onChange }) => {
-  //const { handleChange } = useValidForm();
+  
   return (
     <>
       <label className="input__input-label" htmlFor={name}>{label}</label>

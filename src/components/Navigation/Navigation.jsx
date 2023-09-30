@@ -1,8 +1,8 @@
 import "./Navigation.css";
-import { useState } from "react";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import TopMenu from "./TopMenu/TopMenu";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useResize } from "../../hooks/use-resize";
 
 const Navigation = ({ isLoggedIn }) => {

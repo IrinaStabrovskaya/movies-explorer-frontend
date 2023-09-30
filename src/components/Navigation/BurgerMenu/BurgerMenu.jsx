@@ -1,8 +1,22 @@
-import { NavLink, useNavigate } from "react-router-dom";
 import "./BurgerMenu.css";
+import { useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const BurgerMenu = ({ isOpen, onClose, isLoggedIn }) => {
 const navigate = useNavigate();
+useEffect(() => {
+  if (!isOpen) return;
+
+  const closeByEsc = (evt) => {
+    if (evt.key === "Escape") {
+      onClose();
+    }
+  };
+
+  document.addEventListener("keydown", closeByEsc);
+
+  return () => document.removeEventListener("keydown", closeByEsc);
+}, [isOpen, onClose]);
 
   return (
     <>

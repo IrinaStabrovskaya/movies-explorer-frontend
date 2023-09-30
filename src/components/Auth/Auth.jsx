@@ -4,40 +4,60 @@ import { QueryContext } from "../../contexts/QueryContext";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import Preloader from "../Preloader/Preloader";
-import useValidForm from "../../hooks/use-valid-form";
 
-
-const Auth = (props) => {
-  const {  isValid } = useValidForm();
-  const { isLoading } =useContext(QueryContext);
+const Auth = ({
+  title,
+  button,
+  text,
+  pathLink,
+  link,
+  onSubmit,
+  name,
+  isValid,
+  isLoading,
+  ...props
+}) => {
+  const { isError, errMessage } = useContext(QueryContext);
 
   return (
     <section className="auth">
       <Logo />
-      <h1 className="auth__title">{`${props.title}`}</h1>
-      <form className="auth__form" 
-        name={props.name}
-        autoComplete="on"
-        onSubmit={props.onSubmit}
+      <h1 className="auth__title">{`${title}`}</h1>
+      <form
+        className="auth__form"
+        name={name}
+        autoComplete="off"
+        onSubmit={onSubmit}
+        isLoading={isLoading}
         noValidate
-        >
+      >
         <div className="auth-form__input-wrapper">{props.children}</div>
-        <span className="auth-form__span-result">
-            
-          </span>
-          {isLoading ? <Preloader /> :
-        <button
-          className={`"auth-form__btn btn" ${!isValid && "auth-form__btn auth-form__btn_inactive btn"}`}
-          type="submit" 
-          disabled={isValid}      
+        <span
+          className={
+            isValid
+              ? "auth-form__span-result auth-form__span-result_inactive"
+              : "auth-form__span-result "
+          }
         >
-          {`${props.button}`}
-        </button> }
+          {isError && errMessage}
+        </span>
+        {isLoading && <Preloader />}
+        <button
+          className={
+            isValid
+              ? "auth-form__btn btn"
+              : "auth-form__btn auth-form__btn_inactive"
+          }
+          type="submit"
+          disabled={!isValid}
+        >
+          {`${button}`}
+        </button>
       </form>
       <div className="auth-link__link-wrapper">
-        <p className="auth-link__link-text">{`${props.text}`}</p>
-        <Link className="auth__link link" to={props.pathLink}>
-          {props.link}
+        <p className="auth-link__link-text">{`${text}`}</p>
+        <Link className="auth__link link" to={pathLink}>
+          {link}
         </Link>
       </div>
     </section>

@@ -1,24 +1,27 @@
-export const filterMovies = (data, request) => {
-  const { searchMovie, shortMovie } = request;
+//ф-ция фильтрации фильмов
 
-  if (shortMovie) {
-    return data.filter(
-      (movie) =>
-        (movie.nameRU
-          .trim()
-          .toLowerCase()
-          .includes(searchMovie.trim().toLowerCase()) ||
-          movie.nameEN
-            .trim()
-            .toLowerCase()
-            .includes(searchMovie.trim().toLowerCase())) &&
-        movie.duration <= 40
-    );
+const filterSearсhMovie = (value, moviesList) => {
+  return moviesList.filter(
+    (movie) =>
+      movie.nameRU
+        .trim()
+        .toLowerCase()
+        .includes(value.searchMovie.trim().toLowerCase()) ||
+      movie.nameEN
+        .trim()
+        .toLowerCase()
+        .includes(value.searchMovie.trim().toLowerCase())
+  );
+};
+
+const filterShortMovie = (moviesList) => {
+  return moviesList.filter((movie) => movie.duration <= 40);
+};
+
+export const filterFilms = (value, moviesList) => {
+  if (value.shortMovie) {
+    return filterShortMovie(filterSearсhMovie(value, moviesList));
   } else {
-    return data.filter(
-      (movie) =>
-        movie.nameRU.toLowerCase().includes(searchMovie.trim().toLowerCase()) ||
-        movie.nameEN.toLowerCase().includes(searchMovie.trim().toLowerCase())
-    );
+    return filterSearсhMovie(value, moviesList);
   }
 };

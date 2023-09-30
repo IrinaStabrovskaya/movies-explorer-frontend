@@ -9,11 +9,17 @@
   cursor: pointer;
 }
 
-.movie-card__pic {
+.movie-card__link-pic {
   max-height: 168px;
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.movie-card__pic {
+  width: 100%;
+  height: 100%;
+  
 }
 
 .movie-card__description {

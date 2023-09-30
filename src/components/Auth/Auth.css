@@ -29,11 +29,25 @@
   display: flex;
   flex-direction: column;
 }
+.auth-form__span-result { 
+  margin: 0;  
+  margin-top: 127px;
+  min-height: 20px;
+  color: #FF004C;
+text-align: center;
+
+font-size: 11px;
+}
+
+.auth-form__span-result_inactive {
+  visibility: hidden;
+}
+
 .auth-form__btn {
   width: 100%;
   padding: 0;
   border: none;
-  margin: 157px auto 0;
+  margin:  0 auto;
   height: 45px;
   border-radius: 3px;
   background: #4285f4;
@@ -95,8 +109,12 @@
     margin: 16px auto 0;
   }
 
+  .auth-form__span-result {
+    margin-top: 39px;
+  }
+
   .auth-form__btn {
-    margin: 69px auto 0;
+    margin: 0 auto;
     font-size: 14px;
   }
 
